@@ -64,7 +64,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="passAndPlaySegue" id="s4H-I0-ftn"/>
+                                    <action selector="continuePressed:" destination="yOR-xU-wmj" eventType="touchUpInside" id="a36-hX-Sec"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -74,11 +74,13 @@
                     <navigationItem key="navigationItem" id="TUc-As-LVc"/>
                     <connections>
                         <outlet property="chosenWordTextField" destination="wUP-I6-aob" id="Tsh-GC-3RY"/>
+                        <outlet property="continueButton" destination="axB-qB-jGL" id="VdN-Rz-A14"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="passAndPlaySegue" id="g1k-Iu-u9a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Yg-2U-LTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205.7971014492755" y="18.75"/>
+            <point key="canvasLocation" x="1254" y="19"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -130,7 +132,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="r4U-iG-iyj"/>
                     <connections>
-                        <outlet property="guessedLetter" destination="7h4-ov-cv4" id="BMo-oc-X6j"/>
+                        <outlet property="guessedLetterTextField" destination="7h4-ov-cv4" id="BMo-oc-X6j"/>
                         <outlet property="guessedWord" destination="fKG-BZ-Ybj" id="ubj-6o-c7k"/>
                         <outlet property="stickman" destination="t00-vd-peh" id="7Mo-sv-lRF"/>
                         <outlet property="wrongGuess" destination="V3C-sg-BDG" id="Fkd-A2-pD1"/>

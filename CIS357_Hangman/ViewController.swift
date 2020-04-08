@@ -77,8 +77,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             for x in 0...chosenWord.count-1 {
                 index = chosenWord.index(chosenWord.startIndex, offsetBy: x)
-                // another for loop checking guessword
-                // loop by incrementing by +2 starting at 1
+
                 if Character(temp!) == chosenWord[index] {
                     print("success")
                     

@@ -11,27 +11,23 @@ import UIKit
 class MainMenuViewController: UIViewController {
 
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+    @IBOutlet weak var passAndPlayButton: UIButton!
+    @IBOutlet weak var gameCenterButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.backBarButtonItem = UIBarButtonItem(
             title: "Quit", style: .plain, target: nil, action: #selector(self.quitTapped))
-        // Do any additional setup after loading the view.
+        
+        passAndPlayButton.layer.borderWidth = 1.0
+        passAndPlayButton.layer.cornerRadius = 20.0
+        gameCenterButton.layer.borderWidth = 1.0
+        gameCenterButton.layer.cornerRadius = 20.0
     }
     
     @objc func quitTapped() {
         // Stuff when Quit tapped
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -29,12 +29,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print(chosenWord)
         print(chosenWord.count)
         guessedWord.text = ""
-        
+        var fontSize = guessedWord.font.pointSize
         for _ in 1...chosenWord.count {
             guessedWord.text = guessedWord.text! + "_  "
+            guessedWord.font = guessedWord.font.withSize(fontSize)
+            fontSize -= 1
         }
+    
+        
+
     }
     
+    @IBAction func displayGuessedLetters(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Guessed Letters:", message: String(guessedLetter.sorted()), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default ))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         dismissKeyboard()
         
@@ -42,6 +53,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let temp = guessedLetterTextField.text?.uppercased()
         if temp!.count > 1 {
             let alert = UIAlertController(title: "Too Many Letters", message: "Only Guess 1 at a Time!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default ))
+            self.present(alert, animated: true, completion: nil)
+            
+            guessedLetterTextField.text = ""
+            return false
+        }
+        
+        if (temp!.isEmpty || temp!.range(of: "[^a-zA-Z]", options: .regularExpression) != nil) {
+            let alert = UIAlertController(title: "Invalid Guess", message: "Only Guess Letters!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default ))
             self.present(alert, animated: true, completion: nil)
             

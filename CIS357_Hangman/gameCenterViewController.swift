@@ -17,6 +17,7 @@ class gameCenterViewController: UIViewController, GKGameCenterControllerDelegate
     
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         // Stuff when game center is finished
+        gameCenterViewController.dismiss(animated: true, completion: nil)
     }
     
 
@@ -29,7 +30,7 @@ class gameCenterViewController: UIViewController, GKGameCenterControllerDelegate
         achievementsButton.layer.borderWidth = 1.0
         achievementsButton.layer.cornerRadius = 20.0
         
-        // authenticateUser()
+        authenticateUser()
     }
     
     func authenticateUser() {
@@ -46,5 +47,20 @@ class gameCenterViewController: UIViewController, GKGameCenterControllerDelegate
               }
             }
     }
-
+    
+    @IBAction func leaderboard(_ sender: UIButton) {
+        let vc = GKGameCenterViewController()
+           vc.gameCenterDelegate = self
+           vc.viewState = .achievements
+           present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func achievements(_ sender: UIButton) {
+        let vc = GKGameCenterViewController()
+        vc.gameCenterDelegate = self
+        vc.viewState = .leaderboards
+        vc.leaderboardIdentifier = "Scores"
+        present(vc, animated: true, completion: nil)
+    }
+    
 }

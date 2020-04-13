@@ -20,6 +20,9 @@ class WordSelectorViewController: UIViewController, UITextFieldDelegate {
         self.chosenWordTextField.delegate = self
         let detectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(detectTouch)
+        
+        continueButton.layer.borderWidth = 1.0
+        continueButton.layer.cornerRadius = 20.0
     }
     
     @objc func dismissKeyboard() {
@@ -38,7 +41,7 @@ class WordSelectorViewController: UIViewController, UITextFieldDelegate {
             self.performSegue(withIdentifier: "passAndPlaySegue", sender: sender)
         }
         else {
-            let alert = UIAlertController(title: "Invalid Word!", message: "You may only enter letters and less than 12 characters", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Invalid Word!", message: "You may only enter letters and less than 15 characters", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default ))
             self.present(alert, animated: true, completion: nil)
         }
@@ -55,7 +58,7 @@ class WordSelectorViewController: UIViewController, UITextFieldDelegate {
     }
     
     func verify (word: String) -> Bool {
-        if word.count > 11 {
+        if word.count > 14 {
             return false
         }
         

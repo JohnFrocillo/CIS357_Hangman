@@ -14,10 +14,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var wrongGuess: UIButton!
     @IBOutlet weak var guessedWord: UILabel!
     @IBOutlet weak var guessedLetterTextField: UITextField!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     var stickManNumber = 0
     var chosenWord = ""
     var guessedLetter:[Character] = []
+    var gameCenterGame: Bool = false
+    var consecutiveCorrect = 0
+    var score = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +40,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
             fontSize -= 1
         }
     
+        if gameCenterGame {
+            scoreLabel.isHidden = false
+            scoreLabel.text = "Score:\n00"
+            // Enable GameCenter
+        }
+        else {
+            scoreLabel.isHidden = true
+        }
         
 
+    }
+    
+    func updateScore() {
+        if consecutiveCorrect == 1 {
+            score += 50
+        }
+        else {
+            score *= 2
+        }
+        
+        // Check for any Achievements completed
+        
+        scoreLabel.text = "Score:\n\(score)"
+        print("Consecutive correct: \(consecutiveCorrect)")
+        print("Score: \(score)")
     }
     
     @IBAction func displayGuessedLetters(_ sender: UIBarButtonItem) {
@@ -89,9 +116,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let value = chosenWord.firstIndex(of: Character(temp!))
         if  value == nil {
             incorrectGuess()
+            consecutiveCorrect = 0
         }
         else {
             // Correct Guess
+            consecutiveCorrect += 1
+            updateScore()
             var word = guessedWord.text!
             var index: String.Index
             
@@ -169,6 +199,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             // Reset the counter
             stickManNumber = 0
+            
+            // Send your score to GameCenter
+            // Update the GameCenter Leaderboards
+            // Check for any Achievements completed
             
             return
         }

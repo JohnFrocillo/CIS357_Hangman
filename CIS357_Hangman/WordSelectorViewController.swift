@@ -52,7 +52,7 @@ class WordSelectorViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "passAndPlaySegue" {
             let dest = segue.destination as! ViewController
             dest.chosenWord = chosenWord
-            
+            dest.gameCenterGame = false
         }
         
     }

@@ -113,6 +113,9 @@
                                 <state key="normal" title="New Game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="gameCenterSegue" id="ODv-Zt-2By"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="multiplayerLogo" translatesAutoresizingMaskIntoConstraints="NO" id="n9O-WF-Jis">
                                 <rect key="frame" x="31" y="286" width="352" height="276"/>
@@ -137,9 +140,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UKv-U3-fz0"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NWY-Lp-xgr">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="OS6-Gd-zLf"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="NWY-Lp-xgr"/>
                     <connections>
                         <outlet property="achievementsButton" destination="Zm6-lg-Oc0" id="dAC-X0-G8u"/>
                         <outlet property="leaderboardButton" destination="sTm-vD-3Gl" id="s2C-yU-mnk"/>
@@ -148,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sy6-v1-2gn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="415.94202898550731" y="696.42857142857144"/>
+            <point key="canvasLocation" x="1254" y="751"/>
         </scene>
         <!--Word Selector View Controller-->
         <scene sceneID="g7u-VM-J8e">
@@ -252,6 +253,13 @@
                                 <rect key="frame" x="233" y="238" width="118" height="194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgh-6K-KOT">
+                                <rect key="frame" x="44" y="238" width="64" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -282,6 +290,7 @@
                     <connections>
                         <outlet property="guessedLetterTextField" destination="7h4-ov-cv4" id="BMo-oc-X6j"/>
                         <outlet property="guessedWord" destination="fKG-BZ-Ybj" id="ubj-6o-c7k"/>
+                        <outlet property="scoreLabel" destination="dgh-6K-KOT" id="F2v-8y-TSM"/>
                         <outlet property="stickman" destination="t00-vd-peh" id="7Mo-sv-lRF"/>
                         <outlet property="wrongGuess" destination="V3C-sg-BDG" id="Fkd-A2-pD1"/>
                         <segue destination="eKW-lm-ish" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="8Tq-RS-6WG"/>
@@ -290,7 +299,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="eKW-lm-ish" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1973.913043478261" y="18.75"/>
+            <point key="canvasLocation" x="2224.6376811594205" y="420.53571428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lDD-iU-2cS">
@@ -311,6 +320,9 @@
             <point key="canvasLocation" x="-494.20289855072468" y="18.75"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="g1k-Iu-u9a"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="960" height="532"/>
         <image name="multiplayer" width="666" height="333"/>

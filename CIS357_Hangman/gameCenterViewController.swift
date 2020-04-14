@@ -8,12 +8,16 @@
 
 import UIKit
 import GameKit
+import Foundation
 
 class gameCenterViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var leaderboardButton: UIButton!
     @IBOutlet weak var achievementsButton: UIButton!
+    
+    var chosenWord: String = ""
+    var wordBank: [String] = []
     
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         // Stuff when game center is finished
@@ -31,6 +35,46 @@ class gameCenterViewController: UIViewController, GKGameCenterControllerDelegate
         achievementsButton.layer.cornerRadius = 20.0
         
         authenticateUser()
+    }
+    
+    func generateWord() {
+
+        
+
+        // Set chosenWord String to that random word
+        
+        // Read through the file words.txt
+        let path = Bundle.main.path(forResource: "words", ofType: "txt")
+        let string = try? String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+
+        // Store each line (word) into an array
+        string!.enumerateLines { line, _ in
+            self.wordBank.append(line)
+        }
+        
+        // Get a random index in the array < 14 characters.
+        let randomInt = Int.random(in: 0...wordBank.count)
+        
+        var x = false
+        repeat {
+            if wordBank[randomInt].count < 14 {
+                x = true
+            }
+        } while x == false
+        
+        self.chosenWord = wordBank[randomInt].uppercased()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gameCenterSegue" {
+            
+            generateWord()
+            
+            let dest = segue.destination as! ViewController
+            dest.chosenWord = chosenWord
+            dest.gameCenterGame = true
+            
+        }
     }
     
     func authenticateUser() {

@@ -26,6 +26,14 @@ class MainMenuViewController: UIViewController {
         gameCenterButton.layer.cornerRadius = 20.0
     }
     
+    @IBAction func howToPlay(_ sender: UIBarButtonItem) {
+        let message = "Pass and Play:\nOne human player creates a word, then passes the phone. The second human player will start guessing letters!\n\nGame Center Challenge:\n Compete against other players for the highest score! Words are randomly created, and you start guessing! Every consecutive correct guess will boost your score! Good luck!"
+        
+        let alert = UIAlertController(title: "How To Play", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default ))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @objc func quitTapped() {
         // Stuff when Quit tapped
     }

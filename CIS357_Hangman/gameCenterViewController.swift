@@ -94,16 +94,18 @@ class gameCenterViewController: UIViewController, GKGameCenterControllerDelegate
     
     @IBAction func leaderboard(_ sender: UIButton) {
         let vc = GKGameCenterViewController()
-           vc.gameCenterDelegate = self
-           vc.viewState = .achievements
-           present(vc, animated: true, completion: nil)
+        vc.gameCenterDelegate = self
+        vc.viewState = .leaderboards
+        vc.leaderboardIdentifier = "357_hangman_leaderboard"
+        present(vc, animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func achievements(_ sender: UIButton) {
         let vc = GKGameCenterViewController()
         vc.gameCenterDelegate = self
-        vc.viewState = .leaderboards
-        vc.leaderboardIdentifier = "Scores"
+        vc.viewState = .achievements
         present(vc, animated: true, completion: nil)
     }
     

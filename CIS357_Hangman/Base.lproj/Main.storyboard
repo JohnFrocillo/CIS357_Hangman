@@ -35,7 +35,7 @@
                                 <rect key="frame" x="8" y="614" width="398" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="GameCenter Matchmaking">
+                                <state key="normal" title="GameCenter Challenge">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -62,7 +62,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hRv-q4-bdy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UPn-iz-jdz"/>
+                    <navigationItem key="navigationItem" id="UPn-iz-jdz">
+                        <barButtonItem key="rightBarButtonItem" title="How To Play" id="8Ep-R7-ogL">
+                            <connections>
+                                <action selector="howToPlay:" destination="KUS-7o-TAu" id="Zuu-mX-z5i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="gameCenterButton" destination="YKM-sf-lv8" id="Vgz-8D-qaC"/>
                         <outlet property="passAndPlayButton" destination="RSW-3C-TUD" id="A5P-fN-DOh"/>
@@ -224,14 +230,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scaffold" translatesAutoresizingMaskIntoConstraints="NO" id="3e2-iC-0vs">
                                 <rect key="frame" x="79" y="178" width="256" height="315.5"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3C-sg-BDG">
-                                <rect key="frame" x="129" y="832" width="157" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Click For Wrong Guess"/>
-                                <connections>
-                                    <action selector="clicked_WrongGuess:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qKU-Js-O73"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKG-BZ-Ybj">
                                 <rect key="frame" x="0.0" y="553.5" width="414" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -255,6 +253,13 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgh-6K-KOT">
                                 <rect key="frame" x="44" y="238" width="64" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2x Bonus!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdn-Nm-VG0">
+                                <rect key="frame" x="44" y="287" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -290,9 +295,9 @@
                     <connections>
                         <outlet property="guessedLetterTextField" destination="7h4-ov-cv4" id="BMo-oc-X6j"/>
                         <outlet property="guessedWord" destination="fKG-BZ-Ybj" id="ubj-6o-c7k"/>
+                        <outlet property="multiplierLabel" destination="mdn-Nm-VG0" id="M3b-8n-lmL"/>
                         <outlet property="scoreLabel" destination="dgh-6K-KOT" id="F2v-8y-TSM"/>
                         <outlet property="stickman" destination="t00-vd-peh" id="7Mo-sv-lRF"/>
-                        <outlet property="wrongGuess" destination="V3C-sg-BDG" id="Fkd-A2-pD1"/>
                         <segue destination="eKW-lm-ish" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="8Tq-RS-6WG"/>
                     </connections>
                 </viewController>
@@ -321,7 +326,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="g1k-Iu-u9a"/>
+        <segue reference="ODv-Zt-2By"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="960" height="532"/>

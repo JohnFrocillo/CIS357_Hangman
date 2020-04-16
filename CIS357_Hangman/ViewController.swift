@@ -364,9 +364,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
+        
+        print(self.chosenWord.count)
+        print(self.consecutiveCorrect)
+        print(self.stickManNumber)
+        
         // Works Well Under Pressure
             // Solve an entire word with one chance left
-        if ((self.chosenWord.count <= self.consecutiveCorrect) && (stickManNumber == 5)) {
+        let number_of_distinct = Set(self.chosenWord).count
+        
+        print (number_of_distinct)
+        
+        if ((number_of_distinct <= self.consecutiveCorrect) && (stickManNumber == 6)) {
             let achievement = GKAchievement(identifier: "underPressure")
             achievement.percentComplete = 100
             achievement.showsCompletionBanner = true

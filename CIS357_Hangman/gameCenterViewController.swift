@@ -2,7 +2,7 @@
 //  gameCenterViewController.swift
 //  CIS357_Hangman
 //
-//  Created by Johnathon Frocillo on 4/7/20.
+//  Created by Johnathon Frocillo and Kyle Jacobson on 4/7/20.
 //  Copyright © 2020 Johnathon Frocillo. All rights reserved.
 //
 
